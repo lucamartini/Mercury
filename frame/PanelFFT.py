@@ -18,3 +18,12 @@ class CanvasPanel(wx.Panel):
     def draw(self):
         self.axes.set_yscale('log')
         self.axes.plot(self.fftuple[1], self.fftuple[0], 'r')
+
+
+if __name__ == '__main__':
+
+    app = wx.App()
+    PanelDummyParent = wx.Frame(None)
+    fftuple = [0, 1]
+
+    CanvasPanel(PanelDummyParent, fftuple)

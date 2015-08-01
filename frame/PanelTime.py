@@ -19,3 +19,13 @@ class CanvasPanel(wx.Panel):
 
     def draw(self):
         self.axes.plot(self.t, self.data)
+
+
+if __name__ == '__main__':
+
+    app = wx.App()
+    PanelDummyParent = wx.Frame(None)
+    data = [0, 1, 2]
+    fs = 1
+
+    CanvasPanel(PanelDummyParent, data, fs)
