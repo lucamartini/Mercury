@@ -34,13 +34,13 @@ class MainFrame(wx.Frame):
 
     def OnAbout(self, e):
         # Create a message dialog box
-        dlg = wx.MessageDialog(self, "Mercury System wav analyzer", "About Mercury System", wx.OK)
+        dlg = wx.MessageDialog(self, "Mercury System csv analyzer", "About Mercury System", wx.OK)
         dlg.ShowModal()  # Shows it
         dlg.Destroy()  # finally destroy it when finished.
 
     def OnOpen(self, e):
         """ Open a file"""
-        dlg = wx.FileDialog(self, "Choose a wav file", self.dirname, "", "*.wav", wx.OPEN)
+        dlg = wx.FileDialog(self, "Choose a cvs file", self.dirname, "", "*.csv", wx.OPEN)
         if dlg.ShowModal() == wx.ID_OK:
             self.filename = dlg.GetFilename()
             self.dirname = dlg.GetDirectory()
@@ -50,10 +50,10 @@ class MainFrame(wx.Frame):
             self.fftuple = self.analyzer.ms_tuple
         dlg.Destroy()
 
-        print self.analyzer.data
-        print self.fftuple
+        # print self.analyzer.data
+        # print self.fftuple
 
-        self.panelTime = PanelTime.CanvasPanel(self, self.analyzer.data, self.analyzer.fs)
+        self.panelTime = PanelTime.CanvasPanel(self, self.analyzer.fftdata, self.analyzer.fs)
         self.panelTime.draw()
 
         self.panelFFT = PanelFFT.CanvasPanel(self, self.fftuple)

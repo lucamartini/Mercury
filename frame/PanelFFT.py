@@ -16,7 +16,7 @@ class CanvasPanel(wx.Panel):
         self.canvas = FigureCanvas(self, -1, self.figure)
 
     def draw(self):
-        self.axes.set_yscale('log')
+        # self.axes.set_yscale('log')
         self.axes.plot(self.fftuple[1], self.fftuple[0], 'r')
 
 
